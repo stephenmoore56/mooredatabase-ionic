@@ -1,5 +1,5 @@
 <!--
-  Generated template for the Architecture page.
+  Generated template for the SpeciesByMonth page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
@@ -9,11 +9,17 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Mobile Architecture</ion-title>
+        <ion-title>Species By Month</ion-title>
     </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
+
+    <ion-list>
+        <button ion-item *ngFor="let month of months" (click)="monthSelected(month)">
+            {{ month.monthName }}
+        </button>
+    </ion-list>
+
 
 </ion-content>
