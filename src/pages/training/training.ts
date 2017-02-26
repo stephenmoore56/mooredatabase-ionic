@@ -8,16 +8,16 @@ import {NavController, NavParams} from 'ionic-angular';
  Ionic pages and navigation.
  */
 @Component({
-    selector: 'page-training',
-    templateUrl: 'training.html'
+  selector: 'page-training',
+  templateUrl: 'training.html'
 })
 export class TrainingPage {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
-    }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad TrainingPage');
-    }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad TrainingPage');
+  }
 
 }

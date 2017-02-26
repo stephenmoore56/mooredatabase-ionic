@@ -8,16 +8,16 @@ import {NavController, NavParams} from 'ionic-angular';
  Ionic pages and navigation.
  */
 @Component({
-    selector: 'page-certifications',
-    templateUrl: 'certifications.html'
+  selector: 'page-certifications',
+  templateUrl: 'certifications.html'
 })
 export class CertificationsPage {
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
-    }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad CertificationsPage');
-    }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad CertificationsPage');
+  }
 
 }
