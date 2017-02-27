@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Species By Location</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card>
+
+        <ion-list>
+            <button ion-item *ngFor="let location of locations" (click)="locationSelected(location)">
+                {{ location.location_name }}
+                <ion-badge item-right color="default">{{ location.species_count }} Species</ion-badge>
+            </button>
+        </ion-list>
+
+    </ion-card>
+
+</ion-content>
+

@@ -1,24 +1,53 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {Result} from '../../lib/result';
+import {DataService} from '../../services/data.service';
+import {ChartService} from '../../services/chart.service';
 
 @Component({
-  selector: 'page-species-detail',
-  templateUrl: 'species-detail.html'
+    selector: 'page-species-detail',
+    templateUrl: './species-detail.html',
+    providers: [
+        DataService,
+        ChartService
+    ]
 })
 export class SpeciesDetailPage implements OnInit {
 
-  public bird: Result;
+    public bird: Result = new Result();
+    public months: Result[] = [this.bird];
+    public speciesId: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                private _dataService: DataService,
+                private _chartService: ChartService) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SpeciesDetailPage');
-  }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad SpeciesDetailPage');
+    }
 
-  ngOnInit() {
-    this.bird = this.navParams.get('bird');
-  }
+    ngOnInit() {
+        this.speciesId = this.navParams.get('id');
+        this._dataService
+            .getSpeciesDetail(this.speciesId)
+            .subscribe(
+                r => this.bird = r[0],
+                error => console.log("Error: ", error),
+                () => {
+                    // don't query for sightings or draw chart for birds not seen
+                    if (this.bird.last_seen != null) {
+                        this._dataService
+                            .getMonthsForSpecies(this.speciesId)
+                            .subscribe(
+                                r => this.months = r,
+                                error => console.log("Error: ", error),
+                                () => this._chartService.drawChartMonthsForSpecies(this.months, 'chart_div_2')
+                            );
+                    }
+                }
+            );
+    }
 
 }

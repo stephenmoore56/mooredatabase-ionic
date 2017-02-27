@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-navbar color="dark">
+        <ion-title>Species For Location</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card>
+
+        <ion-card-header>
+            {{ location.location_name }}
+        </ion-card-header>
+
+        <ion-card-content>
+            <p>County/State: {{ location.county_name }} County, {{ location.state_code}}</p>
+            <p>Trips: {{ location.trip_count }}</p>
+            <p>Coordinates: {{ location.latitude }} {{ location.longitude }}</p>
+            <p>{{ location.notes }}</p>
+        </ion-card-content>
+
+        <ion-card-header>
+            Map
+        </ion-card-header>
+
+        <ion-card-content>
+            <div id="map_div_1" class="chart_div"
+                 style="margin-left: auto; margin-right: auto; display:block; height: 500px; position: relative; overflow: hidden;"></div>
+        </ion-card-content>
+
+        <ion-card-header>
+            Species Sighted
+        </ion-card-header>
+
+        <ion-list>
+            <button ion-item *ngFor="let bird of birds" (click)="birdSelected(bird)">
+                {{ bird.common_name }}
+                <ion-badge item-right color="default">
+                    {{ bird.sightings }} Sightings
+                </ion-badge>
+            </button>
+        </ion-list>
+
+    </ion-card>
+
+</ion-content>

@@ -1,22 +1,31 @@
-<!--
-  Generated template for the SpeciesDetail page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar color="dark">
-    <ion-title>{{ bird.common_name }}</ion-title>
-
-  </ion-navbar>
-
+    <ion-navbar color="dark">
+        <ion-title>Species Detail</ion-title>
+    </ion-navbar>
 </ion-header>
 
+<ion-content>
 
-<ion-content padding>
-  <ion-toolbar class="toolbar-sm-dark">
-    <ion-title>Toolbar</ion-title>
-  </ion-toolbar>
+    <ion-card>
+
+        <ion-card-header>
+            {{ bird.common_name }}
+        </ion-card-header>
+
+        <ion-card-content>
+            <p>Genus/Species: <span class="scientific_name">{{ bird.scientific_name }}</span></p>
+            <p>Order: {{ bird.order_name }}</p>
+            <p>Family: {{ bird.family }} {{ bird.subfamily }}</p>
+            <p>Last Seen: {{ bird.last_seen || 'NA' }}</p>
+            <p>Earliest / Latest: {{ bird.earliestSighting || 'NA' }} / {{ bird.latestSighting || 'NA' }}</p>
+        </ion-card-content>
+
+        <ion-card-header>
+            Sightings By Month
+        </ion-card-header>
+
+        <div id="chart_div_2" class="chart_div"></div>
+
+    </ion-card>
 
 </ion-content>

@@ -10,37 +10,43 @@ import {ArchitecturePage} from '../pages/architecture/architecture';
 import {SpeciesByMonthPage} from '../pages/species-by-month/species-by-month';
 import {SpeciesForMonthPage} from '../pages/species-for-month/species-for-month';
 import {SpeciesDetailPage} from '../pages/species-detail/species-detail';
+import {SpeciesForLocationPage} from '../pages/species-for-location/species-for-location';
+import {SpeciesByLocationPage} from '../pages/species-by-location/species-by-location';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    EducationPage,
-    CertificationsPage,
-    TrainingPage,
-    ContactPage,
-    ArchitecturePage,
-    SpeciesByMonthPage,
-    SpeciesForMonthPage,
-    SpeciesDetailPage
-  ],
-  imports: [
-    IonicModule.forRoot(MyApp)
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    EducationPage,
-    CertificationsPage,
-    TrainingPage,
-    ContactPage,
-    ArchitecturePage,
-    SpeciesByMonthPage,
-    SpeciesForMonthPage,
-    SpeciesDetailPage
-  ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+    declarations: [
+        MyApp,
+        HomePage,
+        EducationPage,
+        CertificationsPage,
+        TrainingPage,
+        ContactPage,
+        ArchitecturePage,
+        SpeciesByMonthPage,
+        SpeciesForMonthPage,
+        SpeciesDetailPage,
+        SpeciesByLocationPage,
+        SpeciesForLocationPage
+    ],
+    imports: [
+        IonicModule.forRoot(MyApp)
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MyApp,
+        HomePage,
+        EducationPage,
+        CertificationsPage,
+        TrainingPage,
+        ContactPage,
+        ArchitecturePage,
+        SpeciesByMonthPage,
+        SpeciesForMonthPage,
+        SpeciesDetailPage,
+        SpeciesByLocationPage,
+        SpeciesForLocationPage
+    ],
+    providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {
 }

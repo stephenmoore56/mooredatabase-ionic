@@ -8,16 +8,16 @@ import {NavController, NavParams} from 'ionic-angular';
  Ionic pages and navigation.
  */
 @Component({
-  selector: 'page-architecture',
-  templateUrl: 'architecture.html'
+    selector: 'page-architecture',
+    templateUrl: 'architecture.html'
 })
 export class ArchitecturePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ArchitecturePage');
-  }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad ArchitecturePage');
+    }
 
 }

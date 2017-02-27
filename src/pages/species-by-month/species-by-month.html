@@ -1,28 +1,32 @@
-<!--
-  Generated template for the SpeciesByMonth page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar color="dark">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Species By Month</ion-title>
-  </ion-navbar>
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Species By Month</ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+    <ion-card>
+
+        <ion-card-header>
+            Species & Trips By Month
+        </ion-card-header>
 
 
-  <ion-list>
-    <button ion-item color="light" *ngFor="let month of months" (click)="monthSelected(month)">
-      {{ month.monthName }}
-      <ion-badge item-right color="white">{{ month.speciesCount }} Species / {{ month.tripCount }} Trips</ion-badge>
-      <ion-icon item-right name="arrow-dropright-circle" color="lightgrey"></ion-icon>
-    </button>
-  </ion-list>
+        <div id="chart_div_1" class="chart_div"></div>
 
+        <ion-list>
+            <button ion-item *ngFor="let month of months" (click)="monthSelected(month)">
+                {{ month.monthName }}
+                <ion-badge item-right color="default">
+                    {{ month.speciesCount }} Species / {{ month.tripCount }} Trips
+                </ion-badge>
+            </button>
+        </ion-list>
+
+    </ion-card>
 
 </ion-content>

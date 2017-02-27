@@ -8,16 +8,16 @@ import {NavController, NavParams} from 'ionic-angular';
  Ionic pages and navigation.
  */
 @Component({
-  selector: 'page-contact',
-  templateUrl: 'contact.html'
+    selector: 'page-contact',
+    templateUrl: 'contact.html'
 })
 export class ContactPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ContactPage');
-  }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad ContactPage');
+    }
 
 }
