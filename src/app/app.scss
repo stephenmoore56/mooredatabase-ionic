@@ -13,3 +13,23 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+.chart_div {
+  max-height: 300px;
+  max-width: 600px;
+  margin-bottom: 10px;
+}
+
+.map_div {
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scientific_name {
+  font-style: italic;
+}

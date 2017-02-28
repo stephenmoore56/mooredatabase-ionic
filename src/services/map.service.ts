@@ -8,8 +8,6 @@ export class MapService {
 
     public drawLocationMap(latitude: number, longitude: number, map_canvas_id: string): void {
 
-        console.log('here in service');
-
         // create a new topo map
         let map = new google.maps.Map(document.getElementById(map_canvas_id), {
             zoom: 13,

@@ -12,12 +12,24 @@
             {{ bird.common_name }}
         </ion-card-header>
 
-        <ion-card-content>
+        <ion-card-content class="detailContent">
             <p>Genus/Species: <span class="scientific_name">{{ bird.scientific_name }}</span></p>
             <p>Order: {{ bird.order_name }}</p>
             <p>Family: {{ bird.family }} {{ bird.subfamily }}</p>
+            <p>Sightings: {{ bird.sightings }}</p>
             <p>Last Seen: {{ bird.last_seen || 'NA' }}</p>
             <p>Earliest / Latest: {{ bird.earliestSighting || 'NA' }} / {{ bird.latestSighting || 'NA' }}</p>
+        </ion-card-content>
+
+        <ion-card-content class="detailContent">
+            <button ion-button small icon-left color="primary" (click)="searchImages(bird.common_name)">
+                <ion-icon name="image"></ion-icon>
+                Images
+            </button>
+            <button ion-button small icon-left color="secondary" (click)="openWikipediaArticle(bird.common_name)">
+                <ion-icon name="book"></ion-icon>
+                Wikipedia
+            </button>
         </ion-card-content>
 
         <ion-card-header>

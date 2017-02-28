@@ -12,7 +12,7 @@
             {{ location.location_name }}
         </ion-card-header>
 
-        <ion-card-content>
+        <ion-card-content class="detailContent">
             <p>County/State: {{ location.county_name }} County, {{ location.state_code}}</p>
             <p>Trips: {{ location.trip_count }}</p>
             <p>Coordinates: {{ location.latitude }} {{ location.longitude }}</p>
@@ -23,17 +23,18 @@
             Map
         </ion-card-header>
 
-        <ion-card-content>
-            <div id="map_div_1" class="chart_div"
-                 style="margin-left: auto; margin-right: auto; display:block; height: 500px; position: relative; overflow: hidden;"></div>
+        <ion-card-content class="detailContent">
+            <div id="map_div_1" class="chart_div map_div"></div>
         </ion-card-content>
 
         <ion-card-header>
             Species Sighted
         </ion-card-header>
 
+        <ion-searchbar (ionInput)="filterBirds($event)"></ion-searchbar>
+
         <ion-list>
-            <button ion-item *ngFor="let bird of birds" (click)="birdSelected(bird)">
+            <button ion-item *ngFor="let bird of filteredBirds" (click)="birdSelected(bird)">
                 {{ bird.common_name }}
                 <ion-badge item-right color="default">
                     {{ bird.sightings }} Sightings

@@ -16,6 +16,7 @@ import {SpeciesDetailPage} from '../species-detail/species-detail';
 export class SpeciesForLocationPage implements OnInit {
 
     public birds: Result[];
+    public filteredBirds: Result[];
     public locationId: number;
     public location: Result;
 
@@ -31,7 +32,10 @@ export class SpeciesForLocationPage implements OnInit {
         this._dataService
             .getSpeciesForLocation(this.locationId)
             .subscribe(
-                r => this.birds = r,
+                r => {
+                    this.birds = r;
+                    this.filteredBirds = r;
+                },
                 error => console.log("Error: ", error)
             );
         this._dataService
@@ -49,6 +53,20 @@ export class SpeciesForLocationPage implements OnInit {
         this.navCtrl.push(SpeciesDetailPage, {
             id: bird.id
         });
+    }
+
+    public filterBirds(e: any) {
+        // set val to the value of the searchbar
+        let val = e.target.value;
+
+        // if the value is an empty string don't filter the items
+        if (val && val.trim() != '') {
+            this.filteredBirds = this.birds.filter((bird) => {
+                return (bird.common_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+            })
+        } else {
+            this.filteredBirds = this.birds;
+        }
     }
 
 }
