@@ -1,28 +1,28 @@
 <ion-header>
-  <ion-navbar color="dark">
-    <ion-title>{{ month.monthName }}</ion-title>
-  </ion-navbar>
+    <ion-navbar color="dark">
+        <ion-title>{{ month.monthName }}</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-card>
+    <ion-card>
 
-    <ion-card-header>
-      {{ birds.length }} Species / {{ month.tripCount }} Trips
-    </ion-card-header>
+        <ion-card-header>
+            {{ birds.length }} Species / {{ month.tripCount }} Trips
+        </ion-card-header>
 
-    <ion-searchbar (ionInput)="filterBirds($event)"></ion-searchbar>
+        <ion-searchbar (ionInput)="filterBirds($event)"></ion-searchbar>
 
-    <ion-list>
-      <button ion-item *ngFor="let bird of filteredBirds" (click)="birdSelected(bird)">
-        {{ bird.common_name }}
-        <ion-badge item-right color="default">
-          {{ bird.sightings }} Sightings
-        </ion-badge>
-      </button>
-    </ion-list>
+        <ion-list>
+            <button ion-item *ngFor="let bird of filteredBirds" (click)="birdSelected(bird)">
+                {{ bird.common_name }}
+                <ion-badge item-right color="default">
+                    {{ bird.sightings }} Sightings
+                </ion-badge>
+            </button>
+        </ion-list>
 
-  </ion-card>
+    </ion-card>
 
 </ion-content>
