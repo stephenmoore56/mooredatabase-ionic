@@ -1,32 +1,29 @@
 <ion-header>
-    <ion-navbar color="dark">
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>Species By Month</ion-title>
-    </ion-navbar>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Species By Month</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content>
 
-    <ion-card>
+  <ion-card>
 
-        <ion-card-header>
-            Species & Trips By Month
-        </ion-card-header>
+    <ion-card-content>
+      <div id="chart_div_1" class="chart_div"></div>
+    </ion-card-content>
 
+    <ion-list>
+      <button ion-item *ngFor="let month of months" (click)="monthSelected(month)">
+        {{ month.monthName }}
+        <ion-badge item-right color="default">
+          {{ month.speciesCount }} Species / {{ month.tripCount }} Trips
+        </ion-badge>
+      </button>
+    </ion-list>
 
-        <div id="chart_div_1" class="chart_div"></div>
-
-        <ion-list>
-            <button ion-item *ngFor="let month of months" (click)="monthSelected(month)">
-                {{ month.monthName }}
-                <ion-badge item-right color="default">
-                    {{ month.speciesCount }} Species / {{ month.tripCount }} Trips
-                </ion-badge>
-            </button>
-        </ion-list>
-
-    </ion-card>
+  </ion-card>
 
 </ion-content>

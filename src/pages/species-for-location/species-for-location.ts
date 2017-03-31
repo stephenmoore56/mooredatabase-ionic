@@ -1,8 +1,8 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import {Result} from "../../lib/result";
-import {DataService} from "../../services/data.service";
-import {MapService} from "../../services/map.service";
+import {Result} from '../../lib/result';
+import {DataService} from '../../services/data.service';
+import {MapService} from '../../services/map.service';
 import {SpeciesDetailPage} from '../species-detail/species-detail';
 
 @Component({
@@ -20,15 +20,15 @@ export class SpeciesForLocationPage implements OnInit {
     public locationId: number;
     public location: Result;
 
-    constructor(public navCtrl: NavController,
-                public navParams: NavParams,
+    constructor(private _navCtrl: NavController,
+                private _navParams: NavParams,
                 private _dataService: DataService,
                 private _mapService: MapService) {
         this.location = new Result();
     }
 
     ngOnInit() {
-        this.locationId = this.navParams.get("id");
+        this.locationId = this._navParams.get('id');
         this._dataService
             .getSpeciesForLocation(this.locationId)
             .subscribe(
@@ -36,7 +36,7 @@ export class SpeciesForLocationPage implements OnInit {
                     this.birds = r;
                     this.filteredBirds = r;
                 },
-                error => console.log("Error: ", error)
+                error => console.log('Error: ', error)
             );
         this._dataService
             .getLocation(this.locationId)
@@ -44,13 +44,13 @@ export class SpeciesForLocationPage implements OnInit {
                 r => {
                     this.location = r[0];
                 },
-                error => console.log("Error: ", error),
+                error => console.log('Error: ', error),
                 () => this._mapService.drawLocationMap(this.location.latitude, this.location.longitude, 'map_div_1')
             );
     }
 
     public birdSelected(bird: Result) {
-        this.navCtrl.push(SpeciesDetailPage, {
+        this._navCtrl.push(SpeciesDetailPage, {
             id: bird.id
         });
     }
